@@ -4,7 +4,6 @@ import React, { useRef, useState } from "react";
 import { Flex, Box, Text, Button } from "@chakra-ui/react";
 
 import { baseUrl, fetchApi } from "../utils/fetchApi";
-import { AnyCnameRecord } from "dns";
 
 const Banner = ({
   purpose,
@@ -40,6 +39,8 @@ const Banner = ({
 );
 
 export default function Home({ propertiesForSale, propertiesForRent }: any) {
+  console.log(propertiesForSale, propertiesForRent);
+
   return (
     <Box>
       <Banner
@@ -80,6 +81,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      // Initial code
       propertiesForSale: propertyForSale?.hits,
       propertiesForRent: propertyForRent?.hits,
     },
